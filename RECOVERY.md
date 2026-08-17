@@ -89,16 +89,9 @@ Formal `PROJECT_HANDOFF` is a target-workstation verification performed only
 after DEV01 has restored the project. DEV02 does not need to pass formal
 `PROJECT_HANDOFF` before the authorized DEV01 clean restore may begin.
 
-The following are deferred workstation-level findings, not SiftMarkSite source
-seal blockers:
-
-- `DEV02_TOOLCHAIN_ROOT_MISSING`
-- `DEV02_GITHUB_BINDING_LIVE_EVIDENCE_REQUIRED`
-- `DEV02_VERIFICATION_PROFILE_TEST_HANG`
-
-They may matter for later DEV02 warm-standby completeness. They do not prevent
-source sealing for this Git-only static project and must be handled separately
-from this repository's recovery contract.
+Workstation-level deficiencies that are not required by this project's
+Git-only source-seal contract are tracked by Workstation Recovery and do not
+become project recovery facts.
 
 ## Production boundary
 
