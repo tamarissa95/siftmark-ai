@@ -69,6 +69,37 @@ remote, relative repository identity, current branch and `HEAD`,
 validation status, and timestamp without embedding workstation-specific user
 paths.
 
+## Source seal and target handoff ordering
+
+`SOURCE_SEAL` is not `PROJECT_HANDOFF`.
+
+A DEV02 source seal proves that the authoritative source and recovery facts
+have been safely published for restoration. The formal migration pipeline is:
+
+1. DEV02 source seal.
+2. Seal GitHub `main`.
+3. Seal local Project State.
+4. Publish immutable off-device Project State and verify its SHA-256 readback.
+5. Perform the DEV01 clean restore.
+6. Run formal `PROJECT_HANDOFF` on DEV01, then allow a fresh DEV01 Codex to
+   accept the independent handoff only after that target-workstation gate
+   passes.
+
+Formal `PROJECT_HANDOFF` is a target-workstation verification performed only
+after DEV01 has restored the project. DEV02 does not need to pass formal
+`PROJECT_HANDOFF` before the authorized DEV01 clean restore may begin.
+
+The following are deferred workstation-level findings, not SiftMarkSite source
+seal blockers:
+
+- `DEV02_TOOLCHAIN_ROOT_MISSING`
+- `DEV02_GITHUB_BINDING_LIVE_EVIDENCE_REQUIRED`
+- `DEV02_VERIFICATION_PROFILE_TEST_HANG`
+
+They may matter for later DEV02 warm-standby completeness. They do not prevent
+source sealing for this Git-only static project and must be handled separately
+from this repository's recovery contract.
+
 ## Production boundary
 
 Recovery, source sealing, and fresh-Codex handoff do not publish the website.
@@ -86,6 +117,8 @@ local/off-device Project State, SHA-256 readback, or blocker set is inconsistent
 Never reset, clean, stash, force-push, merge, deploy, or access production as an
 implicit recovery step.
 
-After a formal `PROJECT_HANDOFF` verification passes on a clean `main` at
-`origin/main`, the next allowed phase may be an explicitly authorized DEV01
-restore/handoff. This contract alone does not start that phase.
+After DEV02 source sealing has sealed GitHub `main` and matching local and
+off-device Project State, the next allowed phase may be an explicitly
+authorized DEV01 clean restore. Formal `PROJECT_HANDOFF` then runs on DEV01;
+only its PASS permits the fresh DEV01 Codex independent handoff. This contract
+alone does not start the DEV01 phase.
