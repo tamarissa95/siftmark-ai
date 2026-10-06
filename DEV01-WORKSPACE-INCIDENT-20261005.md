@@ -27,3 +27,15 @@ Existing authorizations remain valid within their original scopes; no new phase 
 EXACT NEXT ACTION: Review this documentation-only Draft PR. Continue existing approved site work only; no website publishing, DNS/TLS or deployment is authorized.
 
 Delivery at creation: LOCAL_ONLY; commit, push and OPEN/DRAFT PR are verified separately in the shared delivery record. Keep the documentation worktree until its review/retirement is separately authorized.
+
+## Final natural-consumer acceptance — 2026-10-06 UTC
+
+This append supersedes earlier pending/stale-health checkpoint statements for the incident consumer gate. The naturally scheduled Health run started at 2026-10-06T02:38:20.4230134Z, ended at 2026-10-06T02:51:36.9201123Z with exit 0, and published a fresh PASS at 2026-10-06T02:51:36.2763454Z. Its shared worker/cleanup outcomes and Task Scheduler last result were all 0; every Health signal was PASS.
+
+The bound Workspace point workspace-20261006T023352749Z-e08b62264d4f4eb8a8a2c8ff5d18c773 completed at 2026-10-06T02:36:43.6149757Z, covering 12 canonical repositories and 151 admitted linked worktrees, with zero failed captures and zero local/remote mismatches. Six pre-existing policy rejections remain explicit; this is not unrestricted full-restore proof. The bound Data point data-20261006T023851909Z-a4fecbf9754d4c0b9ab407fc2a179415 completed at 2026-10-06T02:42:00.9853257Z, PASS with zero mismatches. Both remote completion markers and snapshot/manifest hashes were read back without executing production tasks.
+
+The private coordinator record for incident DEV01-WORKSPACE-20261005 binds exact runtime/run identities, point metadata, preservation and delivery; internal filesystem/account/topology data are deliberately omitted from this copy.
+
+Shared protection coverage is recovered and existing canonical source work remains preserved. Consume this continuation document and resume the existing project authorization at its current gate. This incident supplies no new product phase, release, deployment or merge authorization.
+
+Document delivery uses the existing incident branch and Draft PR https://github.com/tamarissa95/siftmark-ai/pull/3. The final remote readback resolves its exact pushed revision. No merge, schedule/check/timeout change, manual production invocation, credentials action, ROUTE02 contact, Promotion, Restore, deployment, reboot or destructive cleanup was performed by the coordinator. Existing valid unaffected tests and source approvals must not be repeated merely because this incident occurred.
